@@ -18,24 +18,13 @@ app.use(express.json());
 app.use(cookieParser());
 
 
-const allowedOrigins = [
-  "https://mentorship-frontend-nht6.onrender.com",
-  "http://localhost:5173",
-];
+const corsOptions = {
+  origin: ["http://localhost:5173", "https://mentorship-frontend-nht6.onrender.com"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true, // Allow cookies if needed
+};
 
-
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
+app.use(cors(corsOptions));
 
 
 app.use("/images", express.static(path.join(__dirname, "upload/images")));
