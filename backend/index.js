@@ -19,9 +19,7 @@ app.use(cookieParser());
 
 
 const allowedOrigins = [
-  "https://e-commerce-admin-sn3i.onrender.com",
-  "https://e-commerce-new-t4rk.onrender.com",
-  "http://localhost:3000",
+  "https://mentorship-frontend-nht6.onrender.com",
   "http://localhost:5173",
 ];
 
