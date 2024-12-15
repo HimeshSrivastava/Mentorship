@@ -1,18 +1,16 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/pages/Login';
 import ProfileSetup from './components/pages/ProfileSetup';
-// import { useAuthContex, useAuthContext } from './components/contex/AuthContex';
 import Registeration from './components/pages/Registeration';
 import { useAuthContext } from './components/contex/AuthContex';
 import ProductList from './components/pages/ProductList';
 import UserDiscovery from './components/pages/UserDiscovery';
 import Sidebar from './components/Sidebar';
-// import ProfileDisplay from './components/pages/ProfileDisplay';
 import Navbar from './components/Navbar';
-// import ProfilePage from './components/pages/ProfileDisplay';
 
 function App() {
-  const {authUser}=useAuthContext();
+  const { authUser } = useAuthContext();
+  
   return (
     <div>
       <Navbar />
@@ -35,8 +33,6 @@ function App() {
         </Routes>
       )}
     </div>
-
-
   );
 }
 

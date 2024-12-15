@@ -1,4 +1,6 @@
+// import { Link } from "react-router-dom";
 import LogoutButton from "./pages/LogoutButton";
+
 
 const Navbar = () => {
   return (
@@ -16,7 +18,7 @@ const Navbar = () => {
           MentorShip Plateform
         </p>
       </div>
-      <div className="mr-7">
+      <div className="flex gap-4">
         <LogoutButton/>
       </div>
     </div>

@@ -82,6 +82,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/profiles", profileRoutes);
 
 
+
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
 
