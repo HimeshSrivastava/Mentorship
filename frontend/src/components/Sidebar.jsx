@@ -3,6 +3,18 @@ import { Link } from 'react-router-dom';
 const Sidebar = () => {
   return (
     <div className='flex flex-col gap-3 m-4'>
+      <Link to="/">
+        <div className="flex gap-2 items-center max-w-fit bg-slate-300 p-3 rounded-md w-20 md:w-full hover:bg-slate-400 transition">
+          <img
+            className="w-6 h-6 md:w-9 md:h-10"
+            src="https://cdn-icons-png.freepik.com/256/16597/16597579.png?ga=GA1.1.316645646.1734244423&semt=ais_hybrid"
+            alt="Add Product"
+          />
+          <h2 className="text-sm md:text-lg font-medium text-center md:text-left">
+           Dashboard
+          </h2>
+        </div>
+      </Link>
      <Link to="/createProfile">
         <div className="flex gap-2 items-center max-w-fit bg-slate-300 p-3 rounded-md w-32 md:w-full hover:bg-slate-400 transition">
           <img
