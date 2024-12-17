@@ -18,7 +18,7 @@ const Navbar = () => {
           MentorShip Plateform
         </p>
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 mr-7">
         <LogoutButton/>
       </div>
     </div>

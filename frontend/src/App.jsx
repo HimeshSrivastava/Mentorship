@@ -7,6 +7,7 @@ import ProductList from './components/pages/ProductList';
 import UserDiscovery from './components/pages/UserDiscovery';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
+import ProfileDisplay from './components/pages/ProfileDisplay';
 
 function App() {
   const { authUser } = useAuthContext();
@@ -15,12 +16,13 @@ function App() {
     <div>
       <Navbar />
       {authUser ? (
-        <div className="bg-gray-100 min-h-screen flex gap-14">
+        <div className="bg-gray-100 min-h-screen flex gap-10">
           <Sidebar />
           <Routes>
             <Route path="/" element={<UserDiscovery />} />
             <Route path="/filterProfile" element={<UserDiscovery />} />
             <Route path="/profilelist" element={<ProductList />} />
+            <Route path="/profile-display/:userId" element={<ProfileDisplay />} />
             <Route path="/createProfile" element={<ProfileSetup />} />
             <Route path="*" element={<UserDiscovery />} />
           </Routes>

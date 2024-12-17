@@ -28,7 +28,7 @@ const Login = () => {
       setAuthUser(result.data);
     } catch (error) {
       // Error Handling
-      alert("Login failed. Please check your credentials and try again.");
+      alert("Login failed. Please check your credentials and try again.",error);
     }
   };
 

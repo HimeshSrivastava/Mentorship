@@ -2,10 +2,10 @@ import mongoose from "mongoose";
 
 const ProfileSchema = new mongoose.Schema(
   {
-    id:{
-      type:Number,
-      required:true,
-  },
+  //   id:{
+  //     type:Number,
+  //     required:true,
+  // },
     role: {
       type: String,
       enum: ["Mentor", "Mentee"],

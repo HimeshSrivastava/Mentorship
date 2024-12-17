@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
-    <div className='flex flex-col gap-10 m-4'>
+    <div className='flex flex-col gap-3 m-4'>
      <Link to="/createProfile">
-        <div className="flex gap-4 items-center bg-slate-300 p-3 rounded-md w-full hover:bg-slate-400 transition">
+        <div className="flex gap-2 items-center max-w-fit bg-slate-300 p-3 rounded-md w-32 md:w-full hover:bg-slate-400 transition">
           <img
-            className="w-8 h-8 md:w-10 md:h-10"
+            className="w-6 h-6 md:w-10 md:h-10"
             src="https://cdn-icons-png.freepik.com/256/10553/10553142.png?ga=GA1.1.1340374240.1733212174&semt=ais_hybrid"
             alt="Add Product"
           />
@@ -45,3 +45,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
