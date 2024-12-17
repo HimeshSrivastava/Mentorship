@@ -1,76 +1,7 @@
 // import profileModel from "../models/profile.model.js";
+import mongoose from "mongoose";
 import Profile from "../models/profile.model.js";
-// import mongoose from "mongoose";
 
-// Create or Update Profile
-// export const upsertProfile = async (req, res) => {
-//   try {
-//     const profiles = await Profile.find().populate('user'); 
-//     let id;
-    
-//     if (profiles.length > 0) {
-//       const last_profile_array = profiles.slice(-1); // Access the last profile
-//       const last_profile = last_profile_array[0];
-//       id = last_profile.id + 1; // Increment the ID
-//     } else {
-//       id = 1; // Start with ID 1 if no profiles exist
-//     }
-
-//     const {
-//       role,
-//       skillsInterests,
-//       availability,
-//       goals,
-//       socialProfiles,
-//       bio,
-//       profilePicture,
-//     } = req.body;
-
-//     // Check for required fields
-//     if (!id || !role || !skillsInterests || !availability || !goals || !socialProfiles || !bio) {
-//       return res.status(400).json({
-//         success: false,
-//         message: "Missing required fields",
-//       });
-//     }
-
-//     // Structure goals object correctly
-//     const profileData = {
-//       id: id, // Use the converted ObjectId
-//       role,
-//       skillsInterests,
-//       availability,
-//       goals: {
-//         shortTerm: goals.shortTerm || "",
-//         longTerm: goals.longTerm || "",
-//       },
-//       socialProfiles: {
-//         linkedIn: socialProfiles.linkedIn || "",
-//         github: socialProfiles.github || "",
-//       },
-//       bio,
-//       profilePicture,
-//     };
-
-//     // Find or create the profile
-//     const updatedProfile = await Profile.findOneAndUpdate(
-//       { id }, // Search for the profile by ID
-//       profileData,
-//       { new: true, upsert: true } // Create if it doesn't exist
-//     );
-
-//     res.status(200).json({
-//       success: true,
-//       profile: updatedProfile,
-//     });
-//   } catch (error) {
-//     console.error("Error creating or updating profile:", error);
-//     res.status(500).json({
-//       success: false,
-//       message: "Failed to create or update profile",
-//     });
-//   }
-// };
 export const upsertProfile = async (req, res) => {
   try {
     const userId = req.userId; // Extracted from middleware
@@ -192,7 +123,9 @@ export const getProfile = async (req, res) => {
     }
 
     // Find profile by userId
-    const profile = await Profile.findOne({ user: userId });
+    const profile = await Profile.findById(userId);
+    console.log("Profile Query Result:", profile); // Log the result
+    
 
     if (!profile) {
       return res.status(404).json({
