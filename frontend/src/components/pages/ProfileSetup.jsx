@@ -70,12 +70,14 @@ if (!token) {
   alert("You must be logged in to perform this action.");
   return;
 }
+   console.log(token);
       const result = await axios.post(`${API_URL}/api/profiles/upsert`, profileData, {
         headers: {
-          Authorization: `Bearer ${token}`, // Send token for authentication
+          Authorization: `Bearer ${token}`, 
+          "Content-Type": "application/json",
         },
       });
-
+      console.log(result?.data);
       if (result?.data?.success) {
         toast.success("Profile Created");;
         alert("Profile is setup");

@@ -5,7 +5,6 @@ import Profile from "../models/profile.model.js";
 export const upsertProfile = async (req, res) => {
   try {
     const userId = req.userId; // Extracted from middleware
-
     const {
       role,
       skillsInterests,
@@ -15,7 +14,7 @@ export const upsertProfile = async (req, res) => {
       bio,
       profilePicture,
     } = req.body;
-
+    
     // Check for required fields
     if (!role || !skillsInterests || !availability || !goals || !socialProfiles || !bio) {
       return res.status(400).json({
@@ -76,39 +75,6 @@ export const upsertProfile = async (req, res) => {
     });
   }
 };
-
-
-
-// Get Profile by User ID
-// export const getProfile = async (req, res) => {
-//   try {
-//     const { userId } = req.params; 
-//     console.log("Received userId:", userId); // Log the received userId
-
-//     // Use findById to search for the profile
-//     const profile = await Profile.findById(userId);
-
-
-//     if (!profile) {
-//       return res.status(404).json({
-//         success: false,
-//         message: "Profile not found",
-//       });
-//     }
-
-//     res.status(200).json({
-//       success: true,
-//       profile,
-//     });
-//   } catch (error) {
-//     console.error("Error fetching profile:", error);
-//     res.status(500).json({
-//       success: false,
-//       message: "Failed to fetch profile",
-//     });
-//   }
-// };
-// Get Profile by User ID
 export const getProfile = async (req, res) => {
   try {
     const { userId } = req.params; // Extract userId from URL params
