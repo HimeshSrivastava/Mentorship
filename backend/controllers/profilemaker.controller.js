@@ -41,6 +41,8 @@ export const upsertProfile = async (req, res) => {
       profilePicture,
     };
 
+    console.log(profileData);
+
     // Check if profile already exists for this user
     const existingProfile = await Profile.findOne({ user: userId });
 
