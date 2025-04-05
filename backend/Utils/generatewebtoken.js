@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config({ path: '../.env'});
 
 
-const generatewebtoken = (userid, res) => {
+const generatewebtoken = (userid) => {
     const secretKey = process.env.JWT_SECRET_KEY;  
 
     if (!secretKey) {
@@ -15,13 +15,7 @@ const generatewebtoken = (userid, res) => {
         secretKey,            
         { expiresIn: '15d' }   
       );
-        
-      res.cookie("jwt",token,{
-        maxAge: 15 *24 *60 *60 *1000,
-        httpOnly:true,
-        sameSite:"strict",
-      });
-
+      
       return token;
 };
 

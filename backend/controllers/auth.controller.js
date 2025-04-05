@@ -34,7 +34,7 @@ export const signup = async (req, res) => {
 
         console.log(newUser);
         await newUser.save();
-        const token = generatewebtoken(newUser._id, res);
+        const token = generatewebtoken(newUser._id);
         
         
         return res.status(201).json({
