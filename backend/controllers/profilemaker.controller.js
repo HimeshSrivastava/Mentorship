@@ -4,7 +4,7 @@ import Profile from "../models/profile.model.js";
 
 export const upsertProfile = async (req, res) => {
   try {
-    const userId = req.userId; // Extracted from middleware
+    const userId = req.user._id; // Extracted from middleware
     const {
       role,
       skillsInterests,
@@ -25,7 +25,7 @@ export const upsertProfile = async (req, res) => {
 
     // Structure goals object correctly
     const profileData = {
-      user: userId,
+      user: req.user._id,
       role,
       skillsInterests,
       availability,

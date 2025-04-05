@@ -14,7 +14,7 @@ const protectedroute = async (req, res, next) => {
       return res.status(404).json("User not found");
     }
      console.log(user);
-     req.userId = decoded.id;
+     req.user= user;
     next();
   } catch (error) {
     res.status(500).json("Internal server error");
